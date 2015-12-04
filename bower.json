@@ -16,8 +16,8 @@
     "angular-ui-router": "~0.2.15",
     "jquery-bridget": "~1.1.0",
     "masonry": "~3.3.2",
-    "angular-masonry": "~0.13.0"
-
+    "angular-masonry": "~0.13.0",
+    "gsap": "greensock#~1.18.0"
   },
   "overrides": {
     "outlayer": {

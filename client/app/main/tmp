@@ -1,0 +1,17 @@
+    <div masonry masonry-options="{ transitionDuration: '0.4s', gutter:0, margin:0 }">
+      <div class="masonry-brick" ng-repeat="thing in awesomeThings">
+        <div class="panel panel-default" style="margin-top:0, margin-bottom:0">
+          <div class="panel-body">
+          <img ng-src={{thing.imgUrl}}></img>
+          <div class = "title"> {{thing.name}}</div>
+          <div style="display:inline-block">
+            <span class="glyphicon glyphicon-remove-sign"></span>
+            <span class="glyphicon glyphicon-heart" ng-click="like(thing)"></span>{{thing.likes}}
+
+            <span class="glyphicon glyphicon-refresh">0</span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

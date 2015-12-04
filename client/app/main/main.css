@@ -34,3 +34,27 @@
 }
 
 
+body {
+    background: #000;
+
+}
+#demo {
+  width: 682px;
+  height: 60px; 
+  background-color: #333;
+  padding: 0px;
+}
+#pan {
+position:relative;
+  width: auto;
+  height: auto;
+
+}
+
+#pan2 {
+position:relative;  
+  width: auto;
+  height: auto;
+
+}
+

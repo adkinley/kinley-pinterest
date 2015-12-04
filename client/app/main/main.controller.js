@@ -24,9 +24,13 @@ angular.module('kinleyPinterestApp')
 
   ];
 
+$scope.parseDate = function(date) {
+  return date.toLocaleDateString();
+}
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
+      console.log("Owner is " + $scope.awesomeThings[0].owner);
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
 
@@ -52,16 +56,28 @@ angular.module('kinleyPinterestApp')
       socket.unsyncUpdates('thing');
     });
 
+// Update likes of thing
+$scope.like = function(thing) {
 
+  var index = _.findIndex($scope.awesomeThings, function( elt) { 
+    return (elt._id == thing._id);});
+
+$scope.awesomeThings[index].likes++;
+}
+
+$scope.likeIt = function() {
+  console.log("liked");
+}
 $scope.currentPicture = '';
 $scope.comment = '';
 //$scope.currentPicture = 'http://lorempixel.com/300/100';
 $scope.addItem = function(picture, comment) {
   if (picture!=undefined && picture != '') {
-    $scope.pics.push(picture);
+    var tmp = {imgUrl: picture, likes:0};
     if (comment!=undefined && comment!='') {
-      $scope.comments = comment;
+      tmp.name = comment;
     }
+    $scope.awesomeThings.push(tmp);
       $scope.currentPicture = '';
       $scope.ok();
 
@@ -108,7 +124,6 @@ $scope.items = ['item1', 'item2', 'item3'];
     $scope.modalInstance.dismiss('cancel');
   };
   });
-
 
 
 /*
