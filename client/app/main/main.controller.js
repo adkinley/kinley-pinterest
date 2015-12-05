@@ -1,32 +1,11 @@
 'use strict'
 
 angular.module('kinleyPinterestApp')
-  .controller('MainCtrl', function ($scope, $http, socket,$uibModal,$log) {
+  .controller('MainCtrl', function ($scope, $http, socket,$uibModal,$log,Auth) {
     $scope.awesomeThings = [];
+    $scope.showBanner = true;
     $scope.modalInstance = undefined;
-    console.log("Am I reloading the controller!");
-    $scope.pics = [ 'http://lorempixel.com/200/300',
-    'http://lorempixel.com/200/310',
-        'http://lorempixel.com/200/320',
-            'http://lorempixel.com/200/330',
-                'http://lorempixel.com/200/340',
-                    'http://lorempixel.com/200/200',
-                        'http://lorempixel.com/200/210',
-                            'http://lorempixel.com/200/220',
-'http://lorempixel.com/300/100',
-    'http://lorempixel.com/150/110',
-        'http://lorempixel.com/250/120',
-            'http://lorempixel.com/260/130',
-                'http://lorempixel.com/140/140',
-                    'http://lorempixel.com/200/250',
-                        'http://lorempixel.com/200/260',
-                            'http://lorempixel.com/200/270',
 
-  ];
-
-$scope.parseDate = function(date) {
-  return date.toLocaleDateString();
-}
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
@@ -34,11 +13,6 @@ $scope.parseDate = function(date) {
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
 
-    $scope.printPics = function() {
-      _.forEach($scope.pics, function(elt) {
-        console.log(elt);
-      });
-    }
 
     $scope.addThing = function() {
       if($scope.newThing === '') {
@@ -57,30 +31,35 @@ $scope.parseDate = function(date) {
     });
 
 // Update likes of thing
-$scope.like = function(thing) {
+  $scope.like = function(thing) {
 
-  var index = _.findIndex($scope.awesomeThings, function( elt) { 
-    return (elt._id == thing._id);});
+    var index = _.findIndex($scope.awesomeThings, function( elt) { 
+      return (elt._id == thing._id);});
+    $scope.awesomeThings[index].likes++;
+  }
 
-$scope.awesomeThings[index].likes++;
-}
-
-$scope.likeIt = function() {
-  console.log("liked");
-}
 $scope.currentPicture = '';
 $scope.comment = '';
 //$scope.currentPicture = 'http://lorempixel.com/300/100';
 $scope.addItem = function(picture, comment) {
-  if (picture!=undefined && picture != '') {
-    var tmp = {imgUrl: picture, likes:0};
-    if (comment!=undefined && comment!='') {
-      tmp.name = comment;
-    }
+  if (Auth.isLoggedIn() || true) { // this wil let anyone add, remove the or true to limit
+
+  //  var owner = Auth.getCurrentUser().name || 'fonzie';
+    var owner = 'fonzie';
+    var d = new Date();
+
+    console.log("owner is " + owner);
+   
+    if (picture!=undefined && picture != '') {
+      var tmp = {imgUrl: picture, likes:0, owner:owner,created: new Date()};
+      if (comment!=undefined && comment!='') {
+        tmp.name = comment;
+      }
     $scope.awesomeThings.push(tmp);
       $scope.currentPicture = '';
       $scope.ok();
 
+  }
   }
 }
   /*************************MODAL*****************/

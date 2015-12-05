@@ -9,7 +9,7 @@ var ThingSchema = new Schema({
   likes: Number,
   info: String,
   active: Boolean,
-  created: {type: String, default:Date.now},
+  created: {type: Date, default:Date.now},
   owner: {type: String, default:'adkinley'}
 });
 
