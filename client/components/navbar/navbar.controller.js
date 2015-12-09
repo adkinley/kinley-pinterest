@@ -2,11 +2,19 @@
 
 angular.module('kinleyPinterestApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
+    $scope.menu = [
+    {
+      'show': Auth.isLoggedIn(),
+        'title':'Your Finboard',
+        'link': '/finboard'
+      },
+      {
+        'show': true,
+      'title': 'Recent Fins',
+      'link': '/recents'
     }];
 
+    
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;

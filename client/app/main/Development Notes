@@ -1,0 +1,22 @@
+Notes file:
+
+Mutliple Views:
+
+1) Default unauthenticated view
+
+	a) Navbar visible with option to login
+	b) Splash Image
+	c) Random Fins shown across bottom of screen
+
+
+2) Most recent Fins
+
+	a) Navbar visible with autenticated options
+	b) Nicely displayed Fins
+	   i) Do fins have links to user page????
+
+
+3) My Fins (or is this just instance of a user page)
+   a) Show fins of authenticated user
+   b) 
+k

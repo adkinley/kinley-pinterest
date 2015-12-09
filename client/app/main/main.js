@@ -7,7 +7,17 @@ angular.module('kinleyPinterestApp')
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
-      });
+      })
+      /*.state('recent', {
+        url:'/recents',
+        templateUrl:'app/main/main.html',
+        controller: 'MainCtrl'
+      })
+      .state('finboard', {
+        url:'/finboard',
+        templateUrl:'app/main/main.html',
+        controller: 'MainCtrl'
+      });*/
   });
 
 

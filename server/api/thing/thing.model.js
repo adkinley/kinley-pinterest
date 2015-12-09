@@ -10,7 +10,8 @@ var ThingSchema = new Schema({
   info: String,
   active: Boolean,
   created: {type: Date, default:Date.now},
-  owner: {type: String, default:'adkinley'}
+  owner: {type: String, default:'adkinley'},
+  likers: [String]
 });
 
 module.exports = mongoose.model('Thing', ThingSchema);

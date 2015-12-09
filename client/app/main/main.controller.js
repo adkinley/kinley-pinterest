@@ -1,17 +1,20 @@
 'use strict'
 
 angular.module('kinleyPinterestApp')
-  .controller('MainCtrl', function ($scope, $http, socket,$uibModal,$log,Auth) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function ($scope, $http, socket,$uibModal,$log,Auth, finDB) {
+
     $scope.showBanner = true;
     $scope.modalInstance = undefined;
-
-
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      console.log("Owner is " + $scope.awesomeThings[0].owner);
+    $scope.awesomeThings = [];
+    console.log("Main: USer is " + Auth.getCurrentUser().name)
+    finDB.loadAll().success(function(things) {
+      $scope.awesomeThings = things;
+      console.log("The Owner is " + $scope.awesomeThings[0].owner);
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
+
+
+    $scope.finDB = finDB;
 
 
     $scope.addThing = function() {
@@ -43,23 +46,25 @@ $scope.comment = '';
 //$scope.currentPicture = 'http://lorempixel.com/300/100';
 $scope.addItem = function(picture, comment) {
   if (Auth.isLoggedIn() || true) { // this wil let anyone add, remove the or true to limit
-
   //  var owner = Auth.getCurrentUser().name || 'fonzie';
     var owner = 'fonzie';
     var d = new Date();
 
     console.log("owner is " + owner);
    
-    if (picture!=undefined && picture != '') {
-      var tmp = {imgUrl: picture, likes:0, owner:owner,created: new Date()};
-      if (comment!=undefined && comment!='') {
-        tmp.name = comment;
-      }
-    $scope.awesomeThings.push(tmp);
-      $scope.currentPicture = '';
-      $scope.ok();
+    if (picture!=undefined && picture != '') {  // only add if image exists
+      $http.get(picture).then(
+        function(data) {
+          var tmp = {imgUrl: picture, likes:0, owner:owner,created: new Date()};
+          if (comment!=undefined && comment!='') {
+            tmp.name = comment;
+          }
+          $scope.awesomeThings.push(tmp);
+          $scope.currentPicture = '';
+          $scope.ok();
 
-  }
+        });
+    }
   }
 }
   /*************************MODAL*****************/

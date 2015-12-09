@@ -29,6 +29,16 @@ exports.show = function(req, res) {
   });
 };
 
+// Get a single thing
+exports.showUser = function(req, res) {
+  console.log("Looking for user " + req.params.username);
+  Thing.find({owner: req.params.username}, function (err, thing) {
+    if(err) { return handleError(res, err); }
+    if(!thing) { return res.status(404).send('Not Found'); }
+    return res.json(thing);
+  });
+};
+
 // Creates a new thing in the DB.
 exports.create = function(req, res) {
   Thing.create(req.body, function(err, thing) {

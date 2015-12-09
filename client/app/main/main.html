@@ -72,54 +72,19 @@
     <button type="button" class="btn btn-default" ng-click="open('lg')">Add Fin!</button>
     <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{animationsEnabled }})</button>
 
+<br>
+<br>
+ <div masonry="{'isInitLayout':false,'gutter':10,'margin-bottom':'10px'}" load-images="true">
 
-
-<div masonry="{'isInitLayout':false,'gutter':10,'margin-bottom':'10px'}" load-images="true">
-  <div class="masonry-brick panel grid-item" ng-repeat="thing in awesomeThings">
-          <div class="panel-body">
-            <img width="200px" height="auto" ng-src={{thing.imgUrl}}></img>
-         
-        </div>
-        <div class="panel-footer">
-           {{thing.name}}<br>
-           {{thing.created | date : format : short}}<br>
-           {{thing.owner}}<br>
-            <span class="glyphicon glyphicon-remove-sign"></span>
-            <span class="glyphicon glyphicon-heart" ng-click="like(thing)"></span>{{thing.likes}}
-
-            <span class="glyphicon glyphicon-refresh">0</span>
-          </div></div>
+<div fin='{"add":"add"}' class = "masonry-brick grid-item"></div>
+  <div  fin='{"add":"default", "thing":{{thing}}}' class="masonry-brick grid-item" ng-repeat="thing in awesomeThings">
+            </div>
         
     </div>
-  </div>
-
-
-
-<div id="container">
-
-      <div class="grid-item" >
-        <img ng-src={{awesomeThings[0].imgUrl}}></img>
-                <img ng-src={{awesomeThings[0].imgUrl}}></img>
-        <img ng-src={{awesomeThings[0].imgUrl}}></img>
-                <img ng-src={{awesomeThings[0].imgUrl}}></img>
-        <img ng-src={{awesomeThings[0].imgUrl}}></img>
-                <img ng-src={{awesomeThings[0].imgUrl}}></img>
-
-                <img src="http://lorempixum.com/200/150/food/5">
-        <img src="http://lorempixum.com/200/150/food/5">
-                <img src="http://lorempixum.com/200/150/food/5">
-        <img src="http://lorempixum.com/200/150/food/5">
-                <img src="http://lorempixum.com/200/150/food/5">
-        <img src="http://lorempixum.com/200/150/food/5">
-                <img src="http://lorempixum.com/200/150/food/5">
-        <img src="http://lorempixum.com/200/150/food/5">
-                <img src="http://lorempixum.com/200/150/food/5">
-        <img src="http://lorempixum.com/200/150/food/5">
-                <img src="http://lorempixum.com/200/150/food/5">
-
-        </div>
   
-</div>
+
+
+
 <footer class="footer">
   <div class="container">
       <p>Another product of 

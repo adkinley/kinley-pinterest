@@ -1,0 +1,17 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+ <div masonry="{'isInitLayout':false,'gutter':10,'margin-bottom':'10px'}" load-images="true">
+
+
+  <div  fin='{"add":"default", "thing":{{thing}}}' class="masonry-brick grid-item" ng-repeat="thing in awesomeThings | orderBy:'created'">
+            </div>
+        
+    </div>
+  
+
+<footer class="footer">
+  <div class="container">
+      <p>Another product of 
+        <a href="https://twitter.com/adkinley">@adkinley</a> 
+         </p>
+  </div>
+</footer>
