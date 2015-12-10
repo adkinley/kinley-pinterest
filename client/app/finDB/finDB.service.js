@@ -12,6 +12,9 @@ angular.module('kinleyPinterestApp')
 
     }
 
+    var loadCount = function(count) {
+      return $http.get('/api/things/count/'+count);
+    }
     /* Just load the fins belonging to username*/
     var loadUser = function(username) {
       return $http.get('/api/things/user/'+username);
@@ -53,7 +56,7 @@ angular.module('kinleyPinterestApp')
   // send it as an update to the db
   if (!Auth.isLoggedIn()) 
     return;
-  console.log("User in like is " + username);
+ // console.log("User in like is " + username);
   var index = _.findIndex(thing.likers, function( elt) { 
     return (elt == username);
   });
@@ -68,12 +71,13 @@ angular.module('kinleyPinterestApp')
   }
 
   $http.put('/api/things/'+thing._id, thing).success(function (data) {
-    console.log("Successfull update " + data);
+    //console.log("Successfull update " + data);
   });
   }
 
     // Public API here
     return {
+      loadCount: loadCount,
       remove: remove,
       loadAll: loadAll,
       like: like,

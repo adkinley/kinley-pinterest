@@ -41,7 +41,7 @@
 
 
 
-  
+
 <div id="container">
 
       <div class="grid-item" >
@@ -66,4 +66,21 @@
 
         </div>
   
+</div>
+
+
+
+    <div class="container">
+      <div class="row">
+    <div  id="pan0" class="col-md-2" ng-repeat="thing in awesomeThings">
+        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+          <div class="panel-body" >
+          <img ng-src={{awesomeThings[0].imgUrl}} width="90%" height="auto"></img>
+          <div class = "title"> <center>{{awesomeThings[0].name}}</center></div>
+
+        </div>
+
+</div>
+</div>
+</div>
 </div>

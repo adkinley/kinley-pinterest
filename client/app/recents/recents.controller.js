@@ -7,7 +7,6 @@ $scope.awesomeThings = [];
 
   	finDB.loadAll().success(function (data) {
   	 $scope.awesomeThings = data;
-      console.log("The Owner is " + $scope.awesomeThings[0].owner);
       socket.syncUpdates('thing', $scope.awesomeThings);
   	});
 

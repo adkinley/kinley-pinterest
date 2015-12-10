@@ -1,0 +1,28 @@
+.panel-body {
+	background-color:gray;
+
+}
+
+.date-style {
+	font-size: 8pt;
+
+}
+.link-style {
+	color:#00ffff;
+}
+.title-style {
+	padding-top:2px;
+	text-align: center;
+	font-size:10pt;
+	color:black;
+}
+.img-sizer {
+	width:100%;
+	height:auto;
+}
+.panel-default {
+	width:150px;
+	border-color:black;
+	border-width: 5px;
+	border-radius: 10px;
+}

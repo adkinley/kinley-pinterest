@@ -4,8 +4,8 @@ angular.module('kinleyPinterestApp')
   .controller('FinCtrl', function ($scope, $uibModal, $log, finDB, Auth) {
   	
   	$scope.username = Auth.getCurrentUser().name;
-if ($scope.username==undefined)
-	$scope.username = kskinley;
+if ($scope.username==undefined) // should ultimately get rid of this line
+	$scope.username = 'kskinley';
   	//console.log("User is " + JSON.stringify(Auth.getCurrentUser()));
  /* 	$scope.createFin = function() {
   		console.log("Add Fin");
@@ -29,7 +29,7 @@ if ($scope.username==undefined)
   $scope.animationsEnabled = true;
 $scope.items = "";  
   $scope.open = function (size) {
-  	console.log("Open Modal");
+  //	console.log("Open Modal");
 
      $scope.modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
@@ -57,7 +57,7 @@ $scope.items = "";
 
   
   $scope.addItem = function(url, title) {
-  	console.log("Item added");
+  	//console.log("Item added");
   	var item = {owner: $scope.username,
   		imgUrl: url,
   		name:title,
@@ -76,7 +76,7 @@ $scope.items = "";
   };
 
   $scope.cancel = function () {
-  	console.log("Cancel clicked");
+  //	console.log("Cancel clicked");
     $scope.modalInstance.dismiss('cancel');
   };
   });
@@ -84,10 +84,10 @@ $scope.items = "";
 
 angular.module('kinleyPinterestApp').controller('ModalInstanceCtrl', 
   function ($scope, $uibModalInstance, Auth, finDB,items) {
-    console.log("Create a ModalInstancCtrl");
+   // console.log("Create a ModalInstancCtrl");
   
   $scope.addItem = function(url, title) {
-  	console.log("Item added");
+  //	console.log("Item added");
   	var item = {owner: $scope.username,
   		imgUrl: url,
   		name:title,
@@ -106,7 +106,7 @@ angular.module('kinleyPinterestApp').controller('ModalInstanceCtrl',
   };
 
   $scope.cancel = function () {
-  	console.log("Cancel clicked");
+  	//console.log("Cancel clicked");
     $uibModalInstance.dismiss('cancel');
   };
 });

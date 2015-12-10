@@ -7,5 +7,10 @@ angular.module('kinleyPinterestApp')
         url: '/finboard',
         templateUrl: 'app/finboard/finboard.html',
         controller: 'FinboardCtrl'
+      })
+      .state('finboardUser', {
+        url: '/finboard/:username',
+        templateUrl: 'app/finboard/finboard.html',
+        controller: 'FinboardCtrl'
       });
   });

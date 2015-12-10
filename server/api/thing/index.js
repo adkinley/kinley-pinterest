@@ -6,8 +6,10 @@ var controller = require('./thing.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
-router.get('/:id', controller.show);
+router.get('/count/:count', controller.showCount);
 router.get('/user/:username', controller.showUser);
+router.get('/:id', controller.show);
+
 
 router.post('/', controller.create);
 router.put('/:id', controller.update);

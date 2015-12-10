@@ -1,0 +1,43 @@
+<script type="text/ng-template" id="myModalContent.html"> 
+
+<div class="modal-header">
+  <h3 class="modal-title">Add a fin!</h3>
+  </div>
+  <div class="modal-body">
+
+    <img ng-src={{currentPicture}} width="auto" height="300px"></img>
+    <form class="thing-form">
+
+      <p class="input-group">
+        <input type="text" class="form-control" placeholder="Add an image url" ng-model="currentPicture">
+        <input type="text" class="form-control" placeholder="Add an a Fintastic comment" ng-model="comment">
+      </p>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="addItem(currentPicture,comment)">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+  </div>
+
+</script>
+
+<div class="panel panel-default panel-design" style="width:250px">
+        <div class="panel-body" ng-hide="value">
+            <img width="200px" height="auto" ng-src={{thing.imgUrl}}></img>
+         <br>
+        
+         {{thing.name}}<br>
+           {{thing.created | date : format : short}}<br>
+                    <a ng-href="/finboard/{{thing.owner}}">  {{thing.owner}}</a><br>
+            <span class="glyphicon glyphicon-remove-sign" ng-show="thing.owner==username" ng-click="remove(thing)"></span>
+            <span style="color:blue" class="glyphicon glyphicon-heart" ng-click="like(thing)"></span>{{thing.likes}}
+
+            <span class="glyphicon glyphicon-refresh">0</span>
+        </div>
+            <div class="panel-body" ng-show="value">
+            	
+           <center>
+            	<button type="button" class="btn btn-default btn-primary" ng-click="open('lg')">Add Fin</button></center>
+            </div>
+
+</div>

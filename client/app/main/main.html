@@ -1,4 +1,5 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-animate.min.js"></script>
 
 <header class="hero-unit" id="banner" ng-show="showBanner">
   <div class="container">
@@ -8,87 +9,75 @@
   </div>
 </header>
 
-    <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title">Add a fin!</h3>
-        </div>
-        <div class="modal-body">
-
-        <img ng-src={{currentPicture}} width="auto" height="300px"></img>
-  <form class="thing-form">
-  
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add an image url" ng-model="currentPicture">
-      <input type="text" class="form-control" placeholder="Add an a Fintastic comment" ng-model="comment">
-    </p>
-  </form>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="addItem(currentPicture,comment)">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-    <div class="container">
-
-<div class="row">
-
-    <div id="pan" class="col-lg-3">
-        <div class="panel panel-default" style="width:100%" >
-          <div class="panel-body">
-          <img ng-src={{awesomeThings[0].imgUrl}}></img>
-          <div class = "title"> {{awesomeThings[0].name}}</div>
-          <div style="display:inline-block">
-            <span class="glyphicon glyphicon-remove-sign"></span>
-            <span class="glyphicon glyphicon-heart" ng-click="like(awesomeThings[0])"></span>{{awesomeThings[0].likes}}
-
-            <span class="glyphicon glyphicon-refresh">0</span>
+  <div id = "container" class="container-responsive">
+    <div class="row">
+      <div  id="pan1" class="col-md-2">
+        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+          <div class="panel-body" >
+            <img ng-src={{awesomeThings[0].imgUrl}} width="90%" height="auto"></img>
+            <div class = "title"> <center>{{awesomeThings[0].name}}</center></div>
 
           </div>
+
         </div>
-</div>
-</div>
+      </div>
 
-    <div id="pan2" class="col-md-3">
-        <div class="panel panel-default" style="width:100%" >
-          <div class="panel-body">
-          <img ng-src={{awesomeThings[1].imgUrl}}></img>
-          <div class = "title"> {{awesomeThings[1].name}}</div>
-          <div style="display:inline-block">
-            <span class="glyphicon glyphicon-remove-sign"></span>
-            <span class="glyphicon glyphicon-heart" ng-click="like(awesomeThings[1])"></span>{{awesomeThings[1].likes}}
 
-            <span class="glyphicon glyphicon-refresh">0</span>
+      <div  id="pan2" class="col-md-2">
+        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+          <div class="panel-body" >
+            <img ng-src={{awesomeThings[1].imgUrl}} width="90%" height="auto"></img>
+            <div class = "title"> <center>{{awesomeThings[1].name}}</center></div>
 
           </div>
+
         </div>
-</div>
-</div>
+      </div>
+
+
+      <div  id="pan3" class="col-md-2">
+        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+          <div class="panel-body" >
+            <img ng-src={{awesomeThings[2].imgUrl}} width="90%" height="auto"></img>
+            <div class = "title"> <center>{{awesomeThings[2].name}}</center></div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <div  id="pan4" class="col-md-2">
+        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+          <div class="panel-body" >
+            <img ng-src={{awesomeThings[3].imgUrl}} width="90%" height="auto"></img>
+            <div class = "title"> <center>{{awesomeThings[3].name}}</center></div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <div  id="pan5" class="col-md-2">
+        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+          <div class="panel-body" >
+            <img ng-src={{awesomeThings[4].imgUrl}} width="90%" height="auto"></img>
+            <div class = "title"> <center>{{awesomeThings[4].name}}</center></div>
+
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 
-<br>
 
-<button type="button" class="btn btn-default" onClick="move()">Run</button>
-    <button type="button" class="btn btn-default" ng-click="open('lg')">Add Fin!</button>
-    <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{animationsEnabled }})</button>
-
-<br>
-<br>
- <div masonry="{'isInitLayout':false,'gutter':10,'margin-bottom':'10px'}" load-images="true">
-
-<div fin='{"add":"add"}' class = "masonry-brick grid-item"></div>
-  <div  fin='{"add":"default", "thing":{{thing}}}' class="masonry-brick grid-item" ng-repeat="thing in awesomeThings">
-            </div>
-        
-    </div>
-  
-
-
-
-<footer class="footer">
-  <div class="container">
-      <p>Another product of 
+<footer class="footer" >
+  <div class="container-responsive">
+      <center><p>Another product of 
         <a href="https://twitter.com/adkinley">@adkinley</a> 
-         </p>
-  </div>
+         </p></center>
+</div>
 </footer>

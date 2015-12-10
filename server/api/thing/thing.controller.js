@@ -31,12 +31,22 @@ exports.show = function(req, res) {
 
 // Get a single thing
 exports.showUser = function(req, res) {
-  console.log("Looking for user " + req.params.username);
+  //console.log("Looking for user " + req.params.username);
   Thing.find({owner: req.params.username}, function (err, thing) {
     if(err) { return handleError(res, err); }
     if(!thing) { return res.status(404).send('Not Found'); }
     return res.json(thing);
   });
+};
+
+// Get a single thing
+exports.showCount = function(req, res) {
+ // console.log("Looking for count " + req.params.count);
+  Thing.find({}, function (err, thing) {
+    if(err) { return handleError(res, err); }
+    if(!thing) { return res.status(404).send('Not Found'); }
+    return res.json(thing);
+  }).limit(req.params.count);
 };
 
 // Creates a new thing in the DB.

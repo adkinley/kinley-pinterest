@@ -1,120 +1,116 @@
 'use strict'
 
 angular.module('kinleyPinterestApp')
-  .controller('MainCtrl', function ($scope, $http, socket,$uibModal,$log,Auth, finDB) {
+.animation('.jams', function() {
+  //console.log("Animation jam");
+  return {
+    enter: function(element, done) {
+    //  console.log("this");
+          TweenMax.to(element, 2, {left:"+=300"});  
+    },
+    leave: function(element, done) {
+          TweenMax.to(element, 2, {left:"+=300"});  
+    
+        }
+};
+})
+.run(['$animate', function($animate) {
+  console.log("run");
+  $animate.enabled(true);
+}])
+  .controller('MainCtrl', function ($scope, finDB) {
 
     $scope.showBanner = true;
-    $scope.modalInstance = undefined;
+    $scope.finCount = 5;
+
     $scope.awesomeThings = [];
-    console.log("Main: USer is " + Auth.getCurrentUser().name)
-    finDB.loadAll().success(function(things) {
+    $scope.topics = ['one', 'two', 'three'];
+
+    finDB.loadCount($scope.finCount).success(function(things) {
       $scope.awesomeThings = things;
-      console.log("The Owner is " + $scope.awesomeThings[0].owner);
-      socket.syncUpdates('thing', $scope.awesomeThings);
+      //e.log("there are " + $scope.awesomeThings.length + " items");
     });
-
-
-    $scope.finDB = finDB;
-
-
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
-
-    $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+    angular.element(document).ready(function () {
+                  var timeline = new TimelineLite();
+          timeline.to(["#pan1", "#pan2", "#pan3", "#pan4","#pan5"], .1,{x:'15%',position:'absolute'});
+          timeline.to("#pan1",1, {opacity:1});   
+    timeline.to("#pan1", 1, {left:'+=15%'});
+              timeline.to("#pan2",1, {opacity:1});   
+    timeline.to(["#pan2","#pan1"], 1, {left:'+=15%'});
+              timeline.to("#pan3",1, {opacity:1});   
+    timeline.to(["#pan3","#pan2","#pan1"], 1, {left:'+=15%'});
+              timeline.to("#pan4",1, {opacity:1});   
+    timeline.to(["#pan4","#pan3","#pan2","#pan1"], 1, {left:'+=15%'});
+              timeline.to("#pan5",1, {opacity:1});   
+    
     });
-
-// Update likes of thing
-  $scope.like = function(thing) {
-
-    var index = _.findIndex($scope.awesomeThings, function( elt) { 
-      return (elt._id == thing._id);});
-    $scope.awesomeThings[index].likes++;
-  }
-
-$scope.currentPicture = '';
-$scope.comment = '';
-//$scope.currentPicture = 'http://lorempixel.com/300/100';
-$scope.addItem = function(picture, comment) {
-  if (Auth.isLoggedIn() || true) { // this wil let anyone add, remove the or true to limit
-  //  var owner = Auth.getCurrentUser().name || 'fonzie';
-    var owner = 'fonzie';
-    var d = new Date();
-
-    console.log("owner is " + owner);
-   
-    if (picture!=undefined && picture != '') {  // only add if image exists
-      $http.get(picture).then(
-        function(data) {
-          var tmp = {imgUrl: picture, likes:0, owner:owner,created: new Date()};
-          if (comment!=undefined && comment!='') {
-            tmp.name = comment;
-          }
-          $scope.awesomeThings.push(tmp);
-          $scope.currentPicture = '';
-          $scope.ok();
-
-        });
-    }
-  }
-}
-  /*************************MODAL*****************/
-  // MODAL STUFF
-$scope.items = ['item1', 'item2', 'item3'];
-
-  $scope.animationsEnabled = true;
-  
-  $scope.open = function (size) {
-
-    $scope.modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'myModalContent.html',
-     // controller: 'MainCtrl',
-     scope: $scope,
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
-    });
-
-    $scope.modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
-  };
-
-  $scope.toggleAnimation = function () {
-    $scope.animationsEnabled = !$scope.animationsEnabled;
-  };
-
-
-  $scope.ok = function () {
-    $scope.modalInstance.close('ok');
-  };
-
-  $scope.cancel = function () {
-    $scope.modalInstance.dismiss('cancel');
-  };
   });
+//  $animate.animate();
+  /*.animation('.list-out', ['$window',function($window) {
+    return {
+      start : function(element, done) {
+        console.log("Test 1");
+        TweenMax.set(element, {position:'relative'});
 
+        var duration = 1; 
+        //we can use onComplete:done with TweenMax, but lets use
+        //a delay value for testing purposes
+        TweenMax.to(element, 1, {opacity:0, width:0});
+        $window.setTimeout(done, duration * 1000);
+      }
+    }
+  }])*/
 
 /*
-$(document).ready(function() {
-$('.grid').masonry({
-  // options...
-  itemSelector: '.grid-item',
-  columnWidth: 200
-});
+.animation('.slide', function() {
+  console.log("Does this execute");
+  return {
+    // make note that other events (like addClass/removeClass)
+    // have different function input parameters
+    enter: function(element, doneFn) {
+      TweenMax.to(element,1,{opacity:100})
+      console.log("Element is " + Object.keys(element));
+      // remember to call doneFn so that angular
+      // knows that the animation has concluded
+    },
+
+    move: function(element, doneFn) {
+      console.log("Test");
+      jQuery(element).fadeIn(1000, doneFn);
+      TweenMax.to(element,1,{left:'+=200'})
+    },
+
+    leave: function(element, doneFn) {
+      jQuery(element).fadeOut(1000, doneFn);
+    }
+  }
 });*/
+/*  .animation('.list-in', ['$window',function($window) {
+    return {
+      setup: function(element) {
+        TweenMax.set(element, {opacity:0, width:0});
+      },
+      start : function(element, done) {
+                console.log("Test 2");
+        var duration = 1; 
+        //we can use onComplete:done with TweenMax, but lets use
+        //a delay value for testing purposes
+        TweenMax.to(element, duration, {opacity:1, width:210});
+        $window.setTimeout(done, duration * 1000);
+      }
+    }
+  }])
+
+  .animation('.list-move', ['$window',function($window) {
+    return {
+      start : function(element, done) {
+                console.log("Test 3");
+        var duration = 1; 
+        //we can use onComplete:done with TweenMax, but lets use
+        //a delay value for testing purposes
+        TweenMax.to(element, duration, {left:'+=300',opacity:1, width:210});
+        $window.setTimeout(done, duration * 1000);
+      }
+    }
+  }]);
+  */  

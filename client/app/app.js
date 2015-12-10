@@ -7,6 +7,7 @@ angular.module('kinleyPinterestApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
+  'ngAnimate',
   'wu.masonry'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
