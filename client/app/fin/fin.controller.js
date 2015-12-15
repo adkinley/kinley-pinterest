@@ -6,13 +6,6 @@ angular.module('kinleyPinterestApp')
   	$scope.username = Auth.getCurrentUser().name;
 if ($scope.username==undefined) // should ultimately get rid of this line
 	$scope.username = 'kskinley';
-  	//console.log("User is " + JSON.stringify(Auth.getCurrentUser()));
- /* 	$scope.createFin = function() {
-  		console.log("Add Fin");
-  		$scope.open('lg');
-  	}
-*/
-
 
   $scope.remove= function(thing) {
     finDB.remove(thing);
@@ -27,7 +20,7 @@ if ($scope.username==undefined) // should ultimately get rid of this line
   // MODAL STUFF
 
   $scope.animationsEnabled = true;
-$scope.items = "";  
+  $scope.items = "";  
   $scope.open = function (size) {
   //	console.log("Open Modal");
 
@@ -76,7 +69,7 @@ $scope.items = "";
   };
 
   $scope.cancel = function () {
-  //	console.log("Cancel clicked");
+
     $scope.modalInstance.dismiss('cancel');
   };
   });
@@ -84,10 +77,8 @@ $scope.items = "";
 
 angular.module('kinleyPinterestApp').controller('ModalInstanceCtrl', 
   function ($scope, $uibModalInstance, Auth, finDB,items) {
-   // console.log("Create a ModalInstancCtrl");
-  
+
   $scope.addItem = function(url, title) {
-  //	console.log("Item added");
   	var item = {owner: $scope.username,
   		imgUrl: url,
   		name:title,
@@ -106,7 +97,6 @@ angular.module('kinleyPinterestApp').controller('ModalInstanceCtrl',
   };
 
   $scope.cancel = function () {
-  	//console.log("Cancel clicked");
     $uibModalInstance.dismiss('cancel');
   };
 });

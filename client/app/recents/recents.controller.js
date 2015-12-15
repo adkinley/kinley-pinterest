@@ -10,6 +10,5 @@ $scope.awesomeThings = [];
       socket.syncUpdates('thing', $scope.awesomeThings);
   	});
 
-
     $scope.message = 'Hello';
   });

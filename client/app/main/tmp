@@ -84,3 +84,39 @@
 </div>
 </div>
 </div>
+
+To push an existing repository
+
+git remote add origin git@github.com:adkinley/kinley-voting-app.git
+git push -u origin master
+
+
+Goals:
+
+Clean up all basejump projects.
+
+Decent commenting.
+
+Add some testing if possibe. Make sure all user stories work.
+
+
+Commentary
+
+Kinley Voting-App
+   1) Looks like it works well
+   2) Main screen doesn't fit page pefect
+   4) Existing reference to localhost, may need to be changed for heroku (in poll.controller, line 47)
+   Perhaps need to rebuild it to heroku but deleting current project
+
+Kinley Nightlife
+  1) Check on the user story for making and removing your reservation. Does the user need to keep track fo where there reservations are?
+  2) Currently keeping my Yelp API AUthorization keys inside of main.controller.  We may want them to be injected somehow
+
+Kinley Stockmarket
+
+Kinley Booktrade
+
+Kinley Finterest
+
+
+I wonder if I have some socket issue with not unsyncing things when a controller is destroyed

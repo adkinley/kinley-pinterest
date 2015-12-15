@@ -71,7 +71,7 @@ angular.module('kinleyPinterestApp')
   }
 
   $http.put('/api/things/'+thing._id, thing).success(function (data) {
-    //console.log("Successfull update " + data);
+
   });
   }
 
