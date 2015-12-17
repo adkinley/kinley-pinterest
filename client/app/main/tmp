@@ -99,6 +99,7 @@ Decent commenting.
 
 Add some testing if possibe. Make sure all user stories work.
 
+Apps should be somewhat responsive
 
 Commentary
 
@@ -113,6 +114,11 @@ Kinley Nightlife
   2) Currently keeping my Yelp API AUthorization keys inside of main.controller.  We may want them to be injected somehow
 
 Kinley Stockmarket
+  1) Fix screen size
+  2) What do I want to do with the header
+  3) Should not default to the login screen
+  4) There should be no login screen
+  5) Check user stories to cofirm they are right
 
 Kinley Booktrade
 
@@ -120,3 +126,38 @@ Kinley Finterest
 
 
 I wonder if I have some socket issue with not unsyncing things when a controller is destroyed
+
+
+This might be the code to find optng enoent
+
+npm uninstall grunt-contrib-imagemin
+
+npm install --save-dev grunt-contrib-imagemin@0.3.0
+
+
+Trying this solution tothe imagemin problem
+
+This seeemd to work!!!
+npm install --save jpegtran-bin
+npm install --save gunt-contrib-imagemin
+
+
+Fix Chart.js build problem
+Add to Gruntfile under dist/dev/src
+add regex $ to end of all .js searches particualr under dist/dev
+
+
+Deplying a heroku app
+yo angular-fullstack:heroku
+Switch to dist directory
+heroku addons:create mongoloab
+heroku open
+(sometimes this fails, I did heroku restart and then heroku open and it worked)
+
+Missing images now in heroku
+
+
+Problems in StockMarket
+  1)  Can I Fix the tooltip just to list the stock you are hovering over?
+  
+  
