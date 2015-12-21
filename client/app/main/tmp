@@ -160,4 +160,20 @@ Missing images now in heroku
 Problems in StockMarket
   1)  Can I Fix the tooltip just to list the stock you are hovering over?
   
+Problems in BookClub
+   2) What should the non authenticated user see?
+
+
+Problems in nightlife
+  3) Check multiple log ins work
+  4) Match up with user stories
+  5) Searches not reloading now
   
+Probles in voting-app
+
+Problems in Finterest
+   1) Images not showing on animation bottom on heroku
+   2) Need to end seed db 
+   3) Nothing seems to be working quite right
+
+

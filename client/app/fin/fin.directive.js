@@ -10,7 +10,9 @@ angular.module('kinleyPinterestApp')
       	var vals = attrs["fin"];
       //	console.log(vals);
       	var vals = JSON.parse(attrs["fin"]);
-      	scope.value = vals.add == "add";
+      	
+        scope.value = vals.add == "add";
+        console.log("scope value is " + scope.value);
       	scope.thing = vals.thing;
       	//scope.value = attrs["fin"] =="add" ? true  : false;
       }

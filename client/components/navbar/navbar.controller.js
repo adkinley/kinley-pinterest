@@ -6,7 +6,8 @@ angular.module('kinleyPinterestApp')
     {
       'show': Auth.isLoggedIn(),
         'title':'Your Finboard',
-        'link': '/finboard'
+        'link': '/finboard'+'/'+ Auth.getCurrentUser().name
+
       },
       {
         'show': true,

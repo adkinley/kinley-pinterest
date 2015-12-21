@@ -7,8 +7,19 @@
     margin-top: -20px;
 }
 
+.img-sizer {
+  width:120px;
+  height:auto;
+
+}
+.panel-display {
+  margin-top:20px;
+  height:100px;
+  width:120px;
+}
+
 #banner h1 {
-    font-size: 60px;
+    font-size: 24pt;
     line-height: .5;
     letter-spacing: -1px;
 }
@@ -20,23 +31,20 @@
     text-align: center;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
     background: #4393B9;
+    height:25%;
 }
 
-
 .footer {
-  position:absolute;
-    text-align: center;
-    left:30%;
-    right:40%;
-    bottom:0px;
-
-
+ position: relative;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 20px;
 }
 
 .navbar-text {
     margin-left: 15px;
 }
-
 
 body {
     background: #000;
@@ -49,6 +57,7 @@ body {
   background-color: #333;
   padding: 0px;
 }
+
 #pan {
 position:relative;
   width: auto;
@@ -57,16 +66,15 @@ position:relative;
 }
 
 #jam {
-  position:relative;
- 
+  position:relative; 
 }
+
 #pan1 {
 position:relative;  
   width: auto;
   height: auto;
   opacity:0;
 }
-
 
 #pan2 {
 position:relative;  

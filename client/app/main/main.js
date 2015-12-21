@@ -54,7 +54,7 @@ $(document).ready(function () {
  console.log("JQuery ready");
   $(window).load(function () {
 
-    $("#pan2").imagesLoaded( function(){
+/*    $("#pan2").imagesLoaded( function(){
           var timeline = new TimelineLite();
           timeline.to(["#pan1", "#pan2", "#pan3", "#pan4","#pan5"], .1,{x:'15%',position:'absolute'});
           timeline.to("#pan1",1, {opacity:1});   
@@ -66,9 +66,9 @@ $(document).ready(function () {
               timeline.to("#pan4",1, {opacity:1});   
     timeline.to(["#pan4","#pan3","#pan2","#pan1"], 1, {left:'+=15%'});
               timeline.to("#pan5",1, {opacity:1});   
-    
+  */  
     //  TweenMax.to("#pan1", 1, {left:'+=200'});
 
     });
   });
-	});
+	//});

@@ -1,18 +1,18 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
+  <div ng-include="'components/navbar/navbar.html'"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-animate.min.js"></script>
 
 <header class="hero-unit" id="banner" ng-show="showBanner">
   <div class="container">
     <h1>Finterest</h1>
     <p class="lead">It's time to Fin Up!</p>
-  <img src="assets/images/fish.jpg" alt="Holy Mackerel!">
+  <img class="img img-sizer" src="assets/images/fish.jpg" alt="Holy Mackerel!">
   </div>
 </header>
 
-  <div id = "container" class="container-responsive">
+  <div id = "container" class="container-responsive" >
     <div class="row">
       <div  id="pan1" class="col-md-2">
-        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+        <div class="panel panel-default panel-display">
           <div class="panel-body" >
             <img ng-src={{awesomeThings[0].imgUrl}} width="90%" height="auto"></img>
             <div class = "title"> <center>{{awesomeThings[0].name}}</center></div>
@@ -24,7 +24,7 @@
 
 
       <div  id="pan2" class="col-md-2">
-        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+        <div class="panel panel-default panel-display">
           <div class="panel-body" >
             <img ng-src={{awesomeThings[1].imgUrl}} width="90%" height="auto"></img>
             <div class = "title"> <center>{{awesomeThings[1].name}}</center></div>
@@ -36,8 +36,8 @@
 
 
       <div  id="pan3" class="col-md-2">
-        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
-          <div class="panel-body" >
+        <div class="panel panel-default panel-display" >
+          <div class="panel-body">
             <img ng-src={{awesomeThings[2].imgUrl}} width="90%" height="auto"></img>
             <div class = "title"> <center>{{awesomeThings[2].name}}</center></div>
 
@@ -48,7 +48,7 @@
 
 
       <div  id="pan4" class="col-md-2">
-        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+        <div class="panel panel-default panel-display" >
           <div class="panel-body" >
             <img ng-src={{awesomeThings[3].imgUrl}} width="90%" height="auto"></img>
             <div class = "title"> <center>{{awesomeThings[3].name}}</center></div>
@@ -60,7 +60,7 @@
 
 
       <div  id="pan5" class="col-md-2">
-        <div class="panel panel-default" style="margin-right:20px;max-width:150px;min-width:150px;min-height:220px;max-height:220px">
+        <div class="panel panel-default panel-display" >
           <div class="panel-body" >
             <img ng-src={{awesomeThings[4].imgUrl}} width="90%" height="auto"></img>
             <div class = "title"> <center>{{awesomeThings[4].name}}</center></div>
@@ -72,12 +72,10 @@
 
     </div>
   </div>
-
-
-<footer class="footer" >
-  <div class="container-responsive">
-      <center><p>Another product of 
+<div class="container">
+<div class="footer">
+      <center>Another product of 
         <a href="https://twitter.com/adkinley">@adkinley</a> 
-         </p></center>
+      </center>
 </div>
-</footer>
+</div>

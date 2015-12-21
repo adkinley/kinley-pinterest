@@ -5,11 +5,15 @@ angular.module('kinleyPinterestApp')
 
 $scope.awesomeThings = [];
 $scope.showAddButton = false;
+console.log("StateParams " + $stateParams.username);
 $scope.username = undefined;	
- if ($stateParams.username!=undefined) {
+ if ($stateParams.username!=undefined) {  // When do we use the state params???
+ 	console.log("Sehr Gut");
  	$scope.username = $stateParams.username;
- 	if (Auth.isLoggedIn() && Auth.getCurrentUser().name == $scope.username)
+ 	if (Auth.isLoggedIn() && Auth.getCurrentUser().name == $scope.username) {
+ 		console.log("make it true");
  		$scope.showAddButton = true;
+ 	}
  }
  else if (Auth.isLoggedIn())  {
  	$scope.username = Auth.getCurrentUser().name;
