@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/kinleypinterest-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };

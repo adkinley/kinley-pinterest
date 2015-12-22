@@ -1,9 +1,9 @@
 <style>
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
+	[ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+		display: none !important;
+	}
 </style>
-<div style="background:black">
+ <div ng-show="showView" class="container-responsive"  style="background-color:black">
 <div ng-cloak ng-include="'components/navbar/navbar.html'"></div>
 
 
@@ -15,10 +15,5 @@
         
     </div>
 </div>  
-<div ng-cloak class="footer">
-  <div class="container">
-      <center>Another product of 
-        <a href="https://twitter.com/adkinley">@adkinley</a> 
-         </cebter>
-  </div>
-</div>
+
+<signature></signature>

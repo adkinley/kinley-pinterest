@@ -9,13 +9,21 @@
 
 .img-sizer {
   width:120px;
-  height:auto;
-
+  height:120px;
+}
+.container-responsive {
+  background: black;
 }
 .panel-display {
   margin-top:20px;
-  height:100px;
-  width:120px;
+  border-width: 20px;
+  border-radius: 10px;
+  border-color:black;
+  position:relative;  
+  width: 150px;
+  height: 140px;
+  opacity:0;
+
 }
 
 #banner h1 {
@@ -31,79 +39,13 @@
     text-align: center;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
     background: #4393B9;
-    height:25%;
+    height:39%;
 }
 
 
-.footer {
- position: relative;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 20px;
-}
 
 .navbar-text {
     margin-left: 15px;
 }
 
-body {
-    background: #000;
-    color:black;
-}
-
-#demo {
-  width: 682px;
-  height: 60px; 
-  background-color: #333;
-  padding: 0px;
-}
-
-#pan {
-position:relative;
-  width: auto;
-  height: auto;
-
-}
-
-#jam {
-  position:relative; 
-}
-
-#pan1 {
-position:relative;  
-  width: auto;
-  height: auto;
-  opacity:0;
-}
-
-#pan2 {
-position:relative;  
-  width: auto;
-  height: auto;
-  opacity:0;
-}
-
-#pan3 {
-position:relative;  
-  width: auto;
-  height: auto;
-  opacity:0;
-
-}
-
-#pan4 {
-position:relative;  
-  width: auto;
-  height: auto;
-  opacity:0;
-}
-
-
-#pan5 {
-position:relative;  
-  width: auto;
-  height: auto;
-  opacity:0;
-}
 

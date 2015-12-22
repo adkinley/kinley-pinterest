@@ -154,21 +154,23 @@ heroku addons:create mongoloab
 heroku open
 (sometimes this fails, I did heroku restart and then heroku open and it worked)
 
-Missing images now in heroku
+Missing images now in heroku - Thing this is fixed now with the grunt-contrib-imagemim stuff above
 
 
 Problems in StockMarket
   1)  Can I Fix the tooltip just to list the stock you are hovering over?
   
 Problems in BookClub
-   2) What should the non authenticated user see?
+   2) May be making too many redundant calls to database
+
 
 
 Problems in nightlife
   3) Check multiple log ins work
   4) Match up with user stories
-  5) Searches not reloading now
   
+  
+
 Probles in voting-app
 
 Problems in Finterest
@@ -177,3 +179,32 @@ Problems in Finterest
    3) Nothing seems to be working quite right
 
 
+
+
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div ng-include="'components/navbar/navbar.html'"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-animate.min.js"></script>
+  <h1>Hello</h1>
+
+
+<div fin='{"add":"add"}'  ng-show="true"></div>
+
+
+ <div masonry="{'isInitLayout':false,'gutter':10,'margin-bottom':'10px'}" load-images="true">
+
+  <div  fin='{"add":"default", "thing":{{thing}}}' class="masonry-brick grid-item" ng-repeat="thing in awesomeThings | orderBy:'created'">
+  </div>
+        
+ </div>
+  
+
+<footer class="footer">
+  <div class="container">
+      <center>Another product of 
+        <a href="https://twitter.com/adkinley">@adkinley</a> 
+         </center>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-animate.min.js"></script>

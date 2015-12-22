@@ -2,9 +2,11 @@
 
 angular.module('kinleyPinterestApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
+    $scope.loggedIn = Auth.isLoggedIn();
+    
     $scope.menu = [
     {
-      'show': Auth.isLoggedIn(),
+      'show': $scope.loggedIn,
         'title':'Your Finboard',
         'link': '/finboard'+'/'+ Auth.getCurrentUser().name
 
