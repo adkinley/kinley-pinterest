@@ -1,16 +1,20 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-<div style="background:black;height:100%">
+<div class="container-responsive"  style="position:absolute;top:0;left:0;height:100%;width:100%;background:black">
+	<div ng-include="'components/navbar/navbar.html'"></div>
+
+
+
+
 <div fin='{"add":"add"}'  ng-show="true"></div>
 
 
  <div masonry="{'isInitLayout':false,'gutter':10,'margin-bottom':'10px'}" load-images="true">
 
   <div  fin='{"add":"default", "thing":{{thing}}}' class="masonry-brick grid-item" ng-repeat="thing in awesomeThings | orderBy:'created'">
-            </div>
+  </div>
         
-    </div>
+ </div>
   
-</div>
+
 <footer class="footer">
   <div class="container">
       <center>Another product of 
@@ -18,4 +22,4 @@
          </center>
   </div>
 </footer>
-
+</div>
