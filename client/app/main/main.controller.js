@@ -10,7 +10,14 @@ angular.module('kinleyPinterestApp')
     $scope.topics = ['one', 'two', 'three'];
 
     finDB.loadCount($scope.finCount).success(function(things) {
-      $scope.awesomeThings = things;
+      //$scope.awesomeThings = things;
+      if ($scope.awesomeThings.length<5) {
+        var len = $scope.awesomeThings.length;
+        for (var i = 5;i>len;i--) 
+        {
+          $scope.awesomeThings.push({imgUrl:'http://lorempixel.com/'+(40*(i%4+4))+'/200',});
+        }
+      }
     });
     angular.element(document).ready(function () {
                   var timeline = new TimelineLite();
