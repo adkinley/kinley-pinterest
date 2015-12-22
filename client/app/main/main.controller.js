@@ -47,7 +47,7 @@ angular.module('kinleyPinterestApp')
       + nextId+
           "\" class=\"panel panel-default panel-display\">"+
           " <div class=\"panel-body\" >" +
-          "<img src="+obj.imgUrl+" class=\"img-sizer\"></img>" +
+          "<img src="+obj.imgUrl+" class=\"img-sizer\" on-error=\"http://rationalwiki.org/w/images/f/f5/Error_icon.svg\"></img>" +
           "<div class = \"title\"> <center>"+obj.title+"</center></div>" +  
           "</div></div>";
         console.log(str);
@@ -90,11 +90,13 @@ tween.to(element,.5, {opacity:0}).
       timeline.play();  
   }
 
+
 var myinterval =   setInterval(function () {
       console.log("Checking");
       if ($scope.loadComplete) {
         console.log("success");
         clearInterval(myinterval);
+
         startTimeLine();
       }
     },
