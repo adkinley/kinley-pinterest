@@ -45,6 +45,7 @@ angular.module('kinleyPinterestApp')
     /* Update the like counter for a thing */
     /* Add username to the likers list */
     /* If they are already a liker then unlike */
+
     var like = function(thing, username) { 
     // instead of updating the item, we need to update the db adn let ht sync do the work
 
@@ -57,22 +58,22 @@ angular.module('kinleyPinterestApp')
   if (!Auth.isLoggedIn()) 
     return;
  // console.log("User in like is " + username);
-  var index = _.findIndex(thing.likers, function( elt) { 
-    return (elt == username);
+ var index = _.findIndex(thing.likers, function( elt) { 
+  return (elt == username);
   });
   if (index==-1)  // not currentl likeing it
   {
     thing.likers.push(username);
-    thing.likes++;
+
   }
   else {  // user unliking
     _.pull(thing.likers, username);
-    thing.likes--;
+
   }
-
-  $http.put('/api/things/'+thing._id, thing).success(function (data) {
-
-  });
+  console.log("Likers is " + thing.likers.length);
+  thing.likes = thing.likers.length;
+  $http.put('/api/things/'+thing._id, thing).success(function(data) {});
+ 
   }
 
     // Public API here

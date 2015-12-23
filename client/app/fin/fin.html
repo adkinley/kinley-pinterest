@@ -5,7 +5,7 @@
   </div>
   <div class="modal-body">
 
-    <img ng-src={{currentPicture}} width="auto" height="300px"></img>
+    <img id ="modalImage" ng-src={{currentPicture}} width="auto" height="300px"></img>
     <form class="thing-form">
 
       <p class="input-group">
@@ -23,7 +23,7 @@
 
 <div class="panel panel-default panel-design">
         <div class="panel-body" ng-hide="value">
-          <img class="img-sizer img" ng-src={{thing.imgUrl}} on-error="http://rationalwiki.org/w/images/f/f5/Error_icon.svg"></img>
+          <img id ="mainImage" class="img-sizer img" fallback-src="http://rationalwiki.org/w/images/f/f5/Error_icon.svg" ng-src={{thing.imgUrl}} ></img>
           <br>
 
 <div class="title-style">      {{thing.name}}</div>
@@ -31,7 +31,7 @@
             <div>
           <a ng-href="/finboard/{{thing.owner}}" class="link-style">  {{thing.owner}}</a>
           <span class="glyphicon glyphicon-remove-sign" ng-show="thing.owner==username" ng-click="remove(thing)"></span>
-         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
           <span style="color:blue" class="glyphicon glyphicon-heart" ng-click="like(thing)"></span>{{thing.likes}}
 
           <span class="glyphicon glyphicon-refresh">0</span>

@@ -51,7 +51,7 @@ function goHome() {
 
 
 $(document).ready(function () {
- console.log("JQuery ready");
+
   $(window).load(function () {
 
 /*    $("#pan2").imagesLoaded( function(){

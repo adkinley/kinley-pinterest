@@ -174,11 +174,13 @@ Problems in nightlife
 Probles in voting-app
 
 Problems in Finterest
-   1) Images not showing on animation bottom on heroku
-   2) Need to end seed db 
-   3) Nothing seems to be working quite right
-
-
+    1) Images don't scale appropriately
+    
+    5) What if the image doesn't exist - not working
+    6) Problem with likes, i can switch between my personal board and the recents and it keeps adding to the number
+    7) Weird reload of fin when I click on like
+    6) Placement of footer not consistent
+    7)    haven't set up twitter auth
 
 
 <div ng-include="'components/navbar/navbar.html'"></div>
@@ -208,3 +210,37 @@ Problems in Finterest
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-animate.min.js"></script>
+
+
+    <div id="pan1" class="panel panel-default panel-display">
+    <div class="panel-body" >
+      <img ng-src={{awesomeThings[0].imgUrl}} class="img-sizer"></img>
+      <div class = "title"> <center>{{awesomeThings[0].name}}</center></div>
+    </div>
+  </div>
+  <div id = "pan2" class="panel panel-default panel-display">
+    <div class="panel-body" >
+      <img ng-src={{awesomeThings[1].imgUrl}} class="img-sizer"></img>
+      <div class = "title"> <center>{{awesomeThings[1].name}}</center></div>
+    </div>
+  </div>
+  <div id = "pan3" class="panel panel-default panel-display" >
+    <div class="panel-body">
+      <img ng-src={{awesomeThings[2].imgUrl}} class="img-sizer"></img>
+      <div class = "title"> <center>{{awesomeThings[2].name}}</center></div>
+    </div>
+  </div>
+
+  <div id="pan4" class="panel panel-default panel-display" >
+    <div class="panel-body" >
+      <img ng-src={{awesomeThings[3].imgUrl}} class="img-sizer"></img>
+      <div class = "title"> <center>{{awesomeThings[3].name}}</center></div>
+
+    </div>
+  </div>
+
+  <div id="pan5" class="panel panel-default panel-display" >
+    <div class="panel-body" >
+      <img ng-src={{awesomeThings[4].imgUrl}} class="img-sizer"></img>
+      <div class = "title"> <center>{{awesomeThings[4].name}}</center></div>
+    </div>

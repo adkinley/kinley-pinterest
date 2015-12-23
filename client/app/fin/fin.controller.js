@@ -1,22 +1,31 @@
-'use strict'
+  'use strict'
 
-angular.module('kinleyPinterestApp')
+  angular.module('kinleyPinterestApp')
   .controller('FinCtrl', function ($scope, $uibModal, $log, finDB, Auth) {
   	
   	$scope.username = Auth.getCurrentUser().name;
-if ($scope.username==undefined) // should ultimately get rid of this line
-	$scope.username = 'kskinley';
+/*
+  if ($scope.username==undefined) // should ultimately get rid of this line
+   $scope.username = 'kskinley';
+*/
 
-  $scope.remove= function(thing) {
-    finDB.remove(thing);
+
+ $scope.remove= function(thing) {
+  finDB.remove(thing);
   }
+
   	// Update likes of thing
-  $scope.like = function(thing) {
-  	finDB.like(thing,$scope.username);
-  }
-
-
-  /*************************MODAL*****************/
+    $scope.like = function(thing) {
+      if (Auth.isLoggedIn()) {
+        finDB.like(thing,Auth.getCurrentUser().name); /*.success(function (data) {
+          $scope.thing = data;
+          $scope.thing.likes = $scope.thing.likers.length;
+          console.log("$scope.thing is " + JSON.stringify($scope.thing));
+        });*/
+      }
+    }
+    
+    /*************************MODAL*****************/
   // MODAL STUFF
 
   $scope.animationsEnabled = true;
@@ -72,6 +81,7 @@ if ($scope.username==undefined) // should ultimately get rid of this line
 
     $scope.modalInstance.dismiss('cancel');
   };
+
   });
 
 
@@ -100,3 +110,8 @@ angular.module('kinleyPinterestApp').controller('ModalInstanceCtrl',
     $uibModalInstance.dismiss('cancel');
   };
 });
+
+
+  function changeImage(thing,str) {
+    thing.imgUrl = str;
+  }

@@ -11,14 +11,13 @@
   width:120px;
   height:120px;
 }
-.container-responsive {
-  background: black;
-}
+
 .panel-display {
-  margin-top:20px;
+  background-color:black !important;
+  padding-top:20px;
   border-width: 20px;
   border-radius: 10px;
-  border-color:black;
+  border-color:black !important;
   position:relative;  
   width: 150px;
   height: 140px;

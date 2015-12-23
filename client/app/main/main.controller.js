@@ -47,10 +47,12 @@ angular.module('kinleyPinterestApp')
       + nextId+
           "\" class=\"panel panel-default panel-display\">"+
           " <div class=\"panel-body\" >" +
-          "<img src="+obj.imgUrl+" class=\"img-sizer\" on-error=\"http://rationalwiki.org/w/images/f/f5/Error_icon.svg\"></img>" +
+          "<img src="+obj.imgUrl+
+
+          " class=\"img-sizer\" ></img>" +
           "<div class = \"title\"> <center>"+obj.title+"</center></div>" +  
           "</div></div>";
-        console.log(str);
+
           var element = $(str);
       container.append(element);
 
@@ -65,9 +67,10 @@ angular.module('kinleyPinterestApp')
       var tween = new TimelineLite();
 tween.to(element,.5, {opacity:0}).
   to(element, 
-        0,{x:'15%',position:'absolute'}).
+        0,{x:'25%',position:'absolute'}).
       to(element,2, {opacity:1}).
           to(element, 2, {left:'+=15%'}).
+      to(element, 2, {left:'+=15%'}).
       to(element, 2, {left:'+=15%'}).
       to(element, 2, {left:'+=15%'}).
       to(element, 2, {left:'+=15%'}).
@@ -85,7 +88,7 @@ tween.to(element,.5, {opacity:0}).
 
     var timeline = new TimelineMax({repeat:10});
     for (var i =0;i<$scope.awesomeThings.length;i++)  {
-      timeline.add(getAnimation(),'-=10');
+      timeline.add(getAnimation(),'-=12');
     }
       timeline.play();  
   }

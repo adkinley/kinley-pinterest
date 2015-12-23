@@ -8,7 +8,7 @@ angular.module('kinleyPinterestApp')
       restrict: 'EA',
       link: function (scope, element, attrs) {
       	var vals = attrs["fin"];
-      //	console.log(vals);
+
       	var vals = JSON.parse(attrs["fin"]);
       	
         scope.value = vals.add == "add";
